@@ -30,7 +30,7 @@ public class ContactsManager {
         ContentResolver contentResolver = con.getContentResolver();
 
         try{
-            D_Contacs = contentResolver.query(ContactsContract.Contacts.CONTENT_URI,null,null,null,null);
+            D_Contacs = contentResolver.query(ContactsContract.Contacts.CONTENT_URI,null,null,null,"DISPLAY_NAME ASC");
         }catch(Exception e){
             Log.e("Holy Crap ERROR ! :", e.getMessage());
         }
@@ -49,7 +49,7 @@ public class ContactsManager {
 
                int hasPhoneNumber = Integer.parseInt(Contacts_Number);
                 if(hasPhoneNumber > 0){
-                    Cursor phoneCursor = contentResolver.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = ?", new String[]{Contact_ID}, null);
+                    Cursor phoneCursor = contentResolver.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = ? ", new String[]{Contact_ID}, null);
 
                     while(phoneCursor.moveToNext()){
                         String phoneNumber =  phoneCursor.getString(phoneCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
