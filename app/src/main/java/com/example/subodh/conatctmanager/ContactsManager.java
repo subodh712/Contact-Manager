@@ -2,9 +2,11 @@ package com.example.subodh.conatctmanager;
 
 import android.app.Activity;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.database.Cursor;
 import android.provider.ContactsContract;
 import android.util.Log;
+import android.widget.Toast;
 
 
 import java.util.ArrayList;
@@ -12,20 +14,20 @@ import java.util.ArrayList;
 /**
  * Created by Taranpreet Singh on 20/09/2016.
  */
-public class ContactsManager extends Activity {
+public class ContactsManager {
 
     public String ContactName = "";
     public String ContactTelefonNr = "";
     public String ContactTimesContact = "";
     public int Contact_ID=0;
 
-    public void getAllAndroidContacts(){
+    public void getAllAndroidContacts(Context con){
         ArrayList<ContactsManager> contacts = new ArrayList<>();
 
         //Default Contacts Cursor
         Cursor D_Contacs = null;
 
-        ContentResolver contentResolver = getContentResolver();
+        ContentResolver contentResolver = con.getContentResolver();
 
         try{
             D_Contacs = contentResolver.query(ContactsContract.Contacts.CONTENT_URI,null,null,null,null);
@@ -56,6 +58,7 @@ public class ContactsManager extends Activity {
                     phoneCursor.close();
                 }
                 contacts.add(contactsManager);
+                Toast.makeText(con,contactsManager.ContactName,Toast.LENGTH_LONG).show();
             }
         }
     }
