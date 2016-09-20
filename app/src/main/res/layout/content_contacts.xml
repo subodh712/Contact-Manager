@@ -13,4 +13,12 @@
     tools:showIn="@layout/activity_contacts">
 
 
+    <ListView
+        android:id="@+id/contact_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:dividerHeight="4dp" >
+    </ListView>
+
 </RelativeLayout>
