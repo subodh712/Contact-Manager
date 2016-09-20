@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
 public class Contacts extends AppCompatActivity {
 
@@ -30,6 +31,13 @@ public class Contacts extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        String firstName[] = {"Udit", "Taran", "Subodh", "Sharan", "Rahul", "Baba", "Burger", "Tikki"};
+        String numbers[] = {"1234", "12345", "123456", "12331", "313132", "23232", "13231", "23323"};
+
+        ListView contact_list_view = (ListView) findViewById(R.id.contact_list_view);
+        CustomAdapater contactAdapter = new CustomAdapater(getApplicationContext(),firstName, numbers);
+        contact_list_view.setAdapter(contactAdapter);
     }
 
     @Override
