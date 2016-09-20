@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Conatct Manager</string>
     <string name="action_settings">Settings</string>
+    <string name="content_description_contact_image_icon">Contact_Image_Icon</string>
+    <string name="contact_name_text">Udit Jain</string>
+    <string name="contact_number_text">9058593110</string>
 </resources>
