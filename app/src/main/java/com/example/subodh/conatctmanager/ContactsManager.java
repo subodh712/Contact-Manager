@@ -45,8 +45,9 @@ public class ContactsManager {
                 String Contacts_TimesContacted = D_Contacs.getString(D_Contacs.getColumnIndex(ContactsContract.Contacts.TIMES_CONTACTED));
 
                 contactsManager.ContactName = Contacts_DisplayName;
+                contactsManager.ContactTimesContact = Contacts_TimesContacted;
 
-               int hasPhoneNumber = Integer.parseInt(D_Contacs.getString(D_Contacs.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER)));
+               int hasPhoneNumber = Integer.parseInt(Contacts_Number);
                 if(hasPhoneNumber > 0){
                     Cursor phoneCursor = contentResolver.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = ?", new String[]{Contact_ID}, null);
 
@@ -60,6 +61,7 @@ public class ContactsManager {
                 contacts.add(contactsManager);
                 Toast.makeText(con,contactsManager.ContactName,Toast.LENGTH_LONG).show();
                 Toast.makeText(con,contactsManager.ContactTelefonNr,Toast.LENGTH_LONG).show();
+                Toast.makeText(con,contactsManager.ContactTimesContact,Toast.LENGTH_LONG).show();
             }
         }
     }
