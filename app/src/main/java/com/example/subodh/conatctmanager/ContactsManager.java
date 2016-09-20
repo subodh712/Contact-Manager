@@ -61,7 +61,7 @@ public class ContactsManager {
                 contacts.add(contactsManager);
                 Toast.makeText(con,contactsManager.ContactName,Toast.LENGTH_LONG).show();
                 Toast.makeText(con,contactsManager.ContactTelefonNr,Toast.LENGTH_LONG).show();
-                Toast.makeText(con,contactsManager.ContactTimesContact,Toast.LENGTH_LONG).show();
+               // Toast.makeText(con,contactsManager.ContactTimesContact,Toast.LENGTH_LONG).show();
             }
         }
     }
