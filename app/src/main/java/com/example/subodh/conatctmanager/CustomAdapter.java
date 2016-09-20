@@ -11,13 +11,12 @@ import android.widget.TextView;
 /**
  * Created by udit jain on 21-09-2016.
  */
-public class CustomAdapater extends ArrayAdapter
-{
+public class CustomAdapter extends ArrayAdapter{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater;
         inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View row = inflater.inflate(R.layout.activity_contacts,parent,false);
+        View row = inflater.inflate(this.resource,parent,false);
         ImageView imageview = (ImageView) row.findViewById(R.id.contact_item_icon);
         TextView textViewFirstName = (TextView) row.findViewById(R.id.contact_first_name);
         TextView textViewNumber = (TextView) row.findViewById(R.id.contact_number);
@@ -31,11 +30,14 @@ public class CustomAdapater extends ArrayAdapter
     int[] images;
     String[] firstNames;
     String[] numbers;
-    public CustomAdapater(Context context, /*int[] images,*/ String[] firstNames, String[] numbers) {
-        super(context,R.layout.contact_list_item,R.id.contact_first_name,firstNames);
+    int resource;
+    public CustomAdapter(Context context, int resource, /*int[] images,*/ String[] firstNames, String[] numbers) {
+        super(context,resource,R.id.contact_first_name,firstNames);
         this.context= context;
+        this.resource=resource;
         this.firstNames=firstNames;
         this.numbers=numbers;
         //this.images= images;
     }
+
 }

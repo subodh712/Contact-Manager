@@ -36,7 +36,7 @@ public class Contacts extends AppCompatActivity {
         String numbers[] = {"1234", "12345", "123456", "12331", "313132", "23232", "13231", "23323"};
 
         ListView contact_list_view = (ListView) findViewById(R.id.contact_list_view);
-        CustomAdapater contactAdapter = new CustomAdapater(getApplicationContext(),firstName, numbers);
+        CustomAdapter contactAdapter = new CustomAdapter(getApplicationContext(), R.layout.contact_list_item,firstName, numbers);
         contact_list_view.setAdapter(contactAdapter);
     }
 
