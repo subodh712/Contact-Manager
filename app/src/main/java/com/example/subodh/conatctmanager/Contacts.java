@@ -19,9 +19,9 @@ public class Contacts extends AppCompatActivity {
        // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
        // setSupportActionBar(toolbar);
 
-        ContactsManager contactsManager = new ContactsManager();
+        ContactsManager contactsManager = new ContactsManager(this);
 
-        contactsManager.getAllAndroidContacts(this);
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -32,8 +32,12 @@ public class Contacts extends AppCompatActivity {
             }
         });
 
-        String firstName[] = {"Udit", "Taran", "Subodh", "Sharan", "Rahul", "Baba", "Burger", "Tikki"};
-        String numbers[] = {"1234", "12345", "123456", "12331", "313132", "23232", "13231", "23323"};
+        String firstName[];// = {"Udit", "Taran", "Subodh", "Sharan", "Rahul", "Baba", "Burger", "Tikki"};
+        String numbers[] ;//= {"1234", "12345", "123456", "12331", "313132", "23232", "13231", "23323"};
+
+
+        firstName=contactsManager.allName();
+        numbers=contactsManager.allNumber();
 
         ListView contact_list_view = (ListView) findViewById(R.id.contact_list_view);
         CustomAdapter contactAdapter = new CustomAdapter(getApplicationContext(), R.layout.contact_list_item,firstName, numbers);
