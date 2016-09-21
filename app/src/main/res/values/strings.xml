@@ -4,4 +4,5 @@
     <string name="content_description_contact_image_icon">Contact_Image_Icon</string>
     <string name="contact_name_text">Udit Jain</string>
     <string name="contact_number_text">9058593110</string>
+    <string name="search">search</string>
 </resources>
