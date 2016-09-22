@@ -15,7 +15,7 @@ public class ContactsManager {
 
     public ContactsManager(Context context)
     {
-        Cursor contacts = context.getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null,"DISPLAY_NAME ASC");
+        Cursor contacts = context.getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,null,null, null,"DISPLAY_NAME ASC");
         aNameFromContacts = new String[contacts.getCount()];
         aNumberFromContacts = new String[contacts.getCount()];
         int i = 0;
