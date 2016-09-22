@@ -1,7 +1,6 @@
 package com.example.subodh.conatctmanager;
 
 import android.app.SearchManager;
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -81,7 +80,6 @@ public class Contacts extends AppCompatActivity {
                 Cursor contacts = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null,"DISPLAY_NAME ASC");
                 aNameFromContacts = new String[contacts.getCount()];
                 aNumberFromContacts = new String[contacts.getCount()];
-                int i = 0;
 
                 int nameFieldColumnIndex = contacts.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
                 int numberFieldColumnIndex = contacts.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
@@ -91,19 +89,15 @@ public class Contacts extends AppCompatActivity {
                     String contactName = contacts.getString(nameFieldColumnIndex);
                     String contactNameTemp = contactName.toLowerCase();
                     newText=newText.toLowerCase();
-                    Log.i("changed text",newText);
                     if(contactNameTemp.contains(newText))
                     {
                         aNameFromContacts[l] =    contactName ;
-
-                        Log.i("name:",contactName);
 
                         String number = contacts.getString(numberFieldColumnIndex);
                         aNumberFromContacts[l] =    number ;
                         l++;
                     }
 
-                    i++;
                 }
 
                 String[] name=new String[l];
@@ -116,10 +110,8 @@ public class Contacts extends AppCompatActivity {
                 contacts.close();
 
                 contact_list_view.setAdapter(null);
-
-                CustomAdapter contactAdapte = new CustomAdapter(getApplicationContext(), R.layout.contact_list_item,name, phone);
-                contactAdapte.notifyDataSetChanged();
-                contact_list_view.setAdapter(contactAdapte);
+                CustomAdapter contactAdapter = new CustomAdapter(getApplicationContext(), R.layout.contact_list_item,name, phone);
+                contact_list_view.setAdapter(contactAdapter);
                 return false;
 
 
